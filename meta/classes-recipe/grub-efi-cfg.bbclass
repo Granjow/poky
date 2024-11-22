@@ -101,7 +101,7 @@ python build_efi_cfg() {
                 bb.plain('GRUB_TITLE is NOT DEFINED!')
                 title = label
 
-            bb.plain('btype is %s' % btype[0])
+            bb.plain('btype is %s for label %s' % (btype[0], label))
 
             cfgfile.write('\nmenuentry \'%s%s\'{\n' % (title, btype[0]))
             lb = label
