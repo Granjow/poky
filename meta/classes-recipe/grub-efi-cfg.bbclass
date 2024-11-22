@@ -99,8 +99,11 @@ python build_efi_cfg() {
                 bb.plain('TITLE is defined!')
             else:
                 bb.plain('TITLE is NOT DEFINED!')
+                title = label
 
-            cfgfile.write('\nmenuentry \'%s%s\'{\n' % (label, btype[0]))
+            bb.plain('btype is %s' % btype[0])
+
+            cfgfile.write('\nmenuentry \'%s%s\'{\n' % (title, btype[0]))
             lb = label
             if label == "install":
                 lb = "install-efi"

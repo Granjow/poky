@@ -1003,6 +1003,7 @@ This class supports several variables:
 
 -  :term:`APPEND`: An override list of append strings for
    each ``LABEL``.
+TODO improve
 
 -  :term:`GRUB_OPTS`: Additional options to add to the
    configuration (optional). Options are delimited using semi-colon
@@ -1010,6 +1011,14 @@ This class supports several variables:
 
 -  :term:`GRUB_TIMEOUT`: Timeout before executing
    the default ``LABEL`` (optional).
+
+For the label ``factory``, a custom GRUB menu entry titled "Factory Install" with the additional parameter ``factory=yes``
+can be achieved as follows::
+
+  LABELS:append = "factory"
+  APPEND:grub_factory = "factory=yes"
+  GRUB_TITLE:grub_factory = "Factory Install"
+
 
 .. _ref-classes-gsettings:
 
