@@ -96,9 +96,9 @@ python build_efi_cfg() {
         for btype in btypes:
             title = localdata.getVar('GRUB_TITLE')
             if title:
-                bb.plain('TITLE is defined!')
+                bb.plain('GRUB_TITLE is defined!')
             else:
-                bb.plain('TITLE is NOT DEFINED!')
+                bb.plain('GRUB_TITLE is NOT DEFINED!')
                 title = label
 
             bb.plain('btype is %s' % btype[0])
@@ -114,6 +114,7 @@ python build_efi_cfg() {
 
             append = localdata.getVar('APPEND')
             initrd = localdata.getVar('INITRD')
+            bb.plain('APPEND is %s' % append)
 
             if append:
                 append = replace_rootfs_uuid(d, append)
