@@ -94,6 +94,12 @@ python build_efi_cfg() {
         localdata.setVar('OVERRIDES', 'grub_' + label + ':' + overrides)
 
         for btype in btypes:
+            title = localdata.getVar('GRUB_TITLE')
+            if title:
+                bb.plain('TITLE is defined!')
+            else:
+                bb.plain('TITLE is NOT DEFINED!')
+
             cfgfile.write('\nmenuentry \'%s%s\'{\n' % (label, btype[0]))
             lb = label
             if label == "install":
