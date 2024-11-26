@@ -84,6 +84,8 @@ python build_efi_cfg() {
     else:
         btypes = [ [ "", "" ] ]
 
+    bb.plain("grub-efi-cfg.bbclass: Labels are %s and btypes are %s" % (labels, btypes))
+
     for label in labels.split():
         localdata = d.createCopy()
 
