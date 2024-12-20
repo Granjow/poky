@@ -23,6 +23,7 @@ GRUB_TIMEOUT ?= "10"
 GRUB_OPTS ?= "serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1"
 
 GRUB_ROOT ?= "${ROOT}"
+GRUB_TITLE ?= "TITLE FROM POKY"
 APPEND ?= ""
 
 # Uses MACHINE specific KERNEL_IMAGETYPE
