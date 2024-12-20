@@ -95,7 +95,7 @@ python build_efi_cfg() {
             bb.fatal('OVERRIDES not defined')
 
         localdata.need_overrides()
-        bb.plain('Overrides in usage are %s' % localdata.overridesset')
+        bb.plain('Overrides in usage are %s' % localdata.overridesset)
         bb.plain('Override data for GRUB_TITLE is %s' % localdata.overridedata.get('GRUB_TITLE', None))
         localdata.setVar('OVERRIDES', 'grub_' + label + ':' + overrides)
 
