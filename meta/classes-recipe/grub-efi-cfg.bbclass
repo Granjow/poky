@@ -97,7 +97,9 @@ python build_efi_cfg() {
         localdata.need_overrides()
         bb.plain('Overrides in usage are %s' % localdata.overridesset)
         bb.plain('Override data for GRUB_TITLE is %s' % localdata.overridedata.get('GRUB_TITLE', None))
+        bb.plain('GRUB_TITLE with getVar is %s' % localdata.getVar('GRUB_TITLE'))
         localdata.setVar('OVERRIDES', 'grub_' + label + ':' + overrides)
+        bb.plain('GRUB_TITLE with getVar AFTER enabling overrides for label %s is %s' % (label, localdata.getVar('GRUB_TITLE')))
 
         for btype in btypes:
             title = localdata.getVar('GRUB_TITLE')
