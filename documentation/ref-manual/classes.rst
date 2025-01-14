@@ -987,10 +987,14 @@ introspection. This functionality is only enabled if the
 The :ref:`ref-classes-grub-efi` class provides ``grub-efi``-specific functions for
 building bootable images.
 
-This class supports several variables:
+This class supports several variables.
+The label specific override names are ``grub_LABEL``.
+To specificy an override for the label ``mylabel``, the override name is ``grub_mylabel``,
+for example ``APPEND:grub_mylabel = my-appends``.
 
 -  :term:`INITRD`: Indicates list of filesystem images to
    concatenate and use as an initial RAM disk (initrd) (optional).
+   Can be specified for each ``LABEL``.
 
 -  :term:`ROOTFS`: Indicates a filesystem image to include
    as the root filesystem (optional).
@@ -1003,7 +1007,9 @@ This class supports several variables:
 
 -  :term:`APPEND`: An override list of append strings for
    each ``LABEL``.
-TODO improve
+
+-  :term:`GRUB_TITLE`: A custom title for each ```LABEL``.
+   Defaults to ``LABEL`` if it is not defined.
 
 -  :term:`GRUB_OPTS`: Additional options to add to the
    configuration (optional). Options are delimited using semi-colon
