@@ -23,7 +23,7 @@ GRUB_TIMEOUT ?= "10"
 GRUB_OPTS ?= "serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1"
 
 GRUB_ROOT ?= "${ROOT}"
-GRUB_TITLE ?= "TITLE FROM POKY"
+GRUB_TITLE ?= ""
 APPEND ?= ""
 
 # Uses MACHINE specific KERNEL_IMAGETYPE
@@ -103,11 +103,9 @@ python build_efi_cfg() {
 
         for btype in btypes:
             title = localdata.getVar('GRUB_TITLE')
-            if title:
-                bb.plain('GRUB_TITLE is defined!')
-            else:
-                bb.plain('GRUB_TITLE is NOT DEFINED!')
+            if not title or len(title) == 0:
                 title = label
+                bb.plain('GRUB_TITLE is NOT defined for label %s, defaulting to label!' % label)
 
             bb.plain('btype is %s for label %s' % (btype[0], label))
 
